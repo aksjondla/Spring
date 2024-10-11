@@ -8,10 +8,11 @@
 Инструкция по сборке и запуску приложения:
 git clone git remote add origin https://github.com/aksjondla/Spring.git
 
+
+docker-compose up -d
+
 cd SpringExample
 
 mvn clean install
 
 mvn spring-boot:run
-
-docker-compose up -d
