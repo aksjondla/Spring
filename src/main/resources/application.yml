@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wish?useUnicore=true&characterEncoding=UTF-8
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: none #validate #create
+      #hibernate:
+      #ddl-auto: update
+    #dialect: org.hibernate.dialect.PostgreSQLDialect
+      #show-sql: true
+    #hibernate-ddl-auto: create
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    enabled: true
+    drop-first: true #false
+application:
+  endpoint:
+    root: api/v1
+    WishGet: WishGet
+    task: task
+    WishPut: WishPut
+    WishPost: WishPost
+    WishDelete: WishDelete
+    Wishes: Wishes
+    UserGet: UserGet
+    Users: Users
+    UserPut: UserPut
+    UserPost: UserPost
+    UserDelete: UserDelete
+

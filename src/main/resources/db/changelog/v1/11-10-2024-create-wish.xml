@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+    <changeSet id="11-10-2024-create-wish" author="michail">
+
+        <insert tableName="wishes">
+            <column name="title" value="Путешествие в Японию"/>
+            <column name="description" value="Посетить Токио и Киото"/>
+            <column name="category" value="Путешествия"/>
+            <column name="priority" value="HIGH"/>
+            <column name="expected_completion_date" value="2025-06-01"/>
+            <column name="status" value="IN_PROGRESS"/>
+            <column name="user_id" value="1"/>
+            <column name="created_at" valueDate="2024-10-11 00:00:00"/>
+            <column name="updated_at" valueDate="2024-10-11 00:00:00"/>
+        </insert>
+
+        <insert tableName="wishes">
+            <column name="title" value="Купить велосипед"/>
+            <column name="description" value="Хочу велосипед для прогулок"/>
+            <column name="category" value="Здоровье"/>
+            <column name="priority" value="MEDIUM"/>
+            <column name="expected_completion_date" value="2024-12-01"/>
+            <column name="status" value="IN_PROGRESS"/>
+            <column name="user_id" value="2"/>
+            <column name="created_at" valueDate="2024-10-11 00:00:00"/>
+            <column name="updated_at" valueDate="2024-10-11 00:00:00"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
