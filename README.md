@@ -17,3 +17,16 @@ docker-compose up -d
 mvn clean install
 
 mvn spring-boot:run
+
+
+Основные технологии
+Spring HATEOAS
+Spring Boot Starter Security
+Hibernate Validator
+Spring Boot Starter Validation
+Liquibase
+PostgreSQL
+Spring Boot Starter Data JPA
+Spring Boot Starter Web
+Lombok
+Spring Boot
