@@ -14,3 +14,4 @@ mvn clean install
 
 mvn spring-boot:run
 
+docker-compose up -d
