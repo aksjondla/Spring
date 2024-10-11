@@ -15,7 +15,7 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
     enabled: true
-    drop-first: true #false
+    drop-first: false #true
 application:
   endpoint:
     root: api/v1
@@ -30,4 +30,3 @@ application:
     UserPut: UserPut
     UserPost: UserPost
     UserDelete: UserDelete
-

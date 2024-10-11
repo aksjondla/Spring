@@ -20,6 +20,7 @@ public class WishModelAssembler implements RepresentationModelAssembler<WishDto,
                 linkTo(methodOn(WishController.class).getAll()).withRel("allWishes"));
         if (wishDto.getStatus().equals("IN_PROGRESS")) {
             wishModel.add(linkTo(methodOn(WishController.class).completeWish(wishDto.getId())).withRel("complete"));
+
         }
         wishModel.add(linkTo(methodOn(WishController.class).update(wishDto.getId(), wishDto)).withRel("update"));
         wishModel.add(linkTo(methodOn(WishController.class).deleteWish(wishDto.getId())).withRel("delete"));

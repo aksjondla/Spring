@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 import org.springframework.validation.*;
 
 
-@RequestMapping("${application.endpoint.root}")
+@RequestMapping
 @RestController
 @Slf4j
 @RequiredArgsConstructor
@@ -34,7 +34,7 @@ public class WishController {
     private final WishGRUDService wishService;
     private final WishModelAssembler wishModelAssembler;
 
-    @GetMapping("${application.endpoint.Wishes}/{id}")
+    @GetMapping("api/v1/Wishes/{id}")
     public ResponseEntity<EntityModel<WishDto>> getWishById(@PathVariable Long id){
         log.info("Fetching wish with id: {}", id);
         final WishDto wishDtoById = wishService.getById(id);
@@ -48,7 +48,7 @@ public class WishController {
     }
 
 
-    @GetMapping("${application.endpoint.Wishes}")
+    @GetMapping("api/v1/Wishes")
     public ResponseEntity<CollectionModel<EntityModel<WishDto>>> getAll(){
         log.info("Fetching all wishes");
         final Collection<EntityModel<WishDto>> wishes = wishService.getAll()
@@ -61,7 +61,7 @@ public class WishController {
                 : new ResponseEntity<>(CollectionModel.of(wishes), HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/{userId}/Wishes")
+    @GetMapping("api/v1/{userId}/Wishes")
     public ResponseEntity<Page<EntityModel<WishDto>>> getWishes(
             @PathVariable Long userId,
             @RequestParam(required = false) String catehory,
@@ -74,7 +74,7 @@ public class WishController {
         return new ResponseEntity<>( wishModels, HttpStatus.OK);
     }
 
-    @PostMapping("${application.endpoint.Wishes}")
+    @PostMapping("api/v1/Wishes")
     public ResponseEntity<?> createWish(@RequestBody @Valid final WishDto wishDto) {
         log.info("Creating new wish: {}", wishDto);
         wishService.create(wishDto);
@@ -82,7 +82,7 @@ public class WishController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("${application.endpoint.Wishes}/{id}")
+    @PutMapping("api/v1/Wishes/{id}")
     public ResponseEntity<?> update (@PathVariable Long id, @RequestBody @Valid final WishDto wishDto)
     {
         log.info("Updating wish with id: {}", id);
@@ -91,7 +91,7 @@ public class WishController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("${application.endpoint.Wishes}/{id}")
+    @DeleteMapping("api/v1/Wishes/{id}")
     public ResponseEntity<?> deleteWish(@PathVariable Long id)
     {
         log.info("Deleting wish with id: {}", id);
@@ -100,7 +100,7 @@ public class WishController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("${application.endpoint.Wishes}/{id}/complete")
+    @PutMapping("api/v1/Wishes/{id}/complete")
     public ResponseEntity<?> completeWish(@PathVariable Long id) {
         log.info("Completing wish with id: {}", id);
         wishService.complete(id);
