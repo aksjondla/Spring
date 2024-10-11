@@ -9,9 +9,10 @@
 git clone git remote add origin https://github.com/aksjondla/Spring.git
 
 
-docker-compose up -d
 
 cd SpringExample
+
+docker-compose up -d
 
 mvn clean install
 
